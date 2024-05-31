@@ -7,7 +7,7 @@ def generate_non_hamiltonian_graph(n):
 
     graph = Graph(n)
     
-    # Graph generation with 50% saturation
+    # Graph generation with 50% saturation - as in task
     edges_needed = int(n * (n - 1) / 2 * 0.5)
     while edges_needed > 0:
         u, v = random.sample(range(n), 2)
