@@ -1,3 +1,5 @@
+from hamilton import generate_hamiltonian_graph
+
 def main():
     while True:
         mode = input(">>> ")
@@ -5,6 +7,7 @@ def main():
         if mode == '--hamilton':
             n = int(input("nodes> "))
             saturation = int(input("saturation> "))
+            graph = generate_hamiltonian_graph(n, saturation)
             return True
         elif mode == '--non-hamilton':
             n = int(input("nodes> "))
