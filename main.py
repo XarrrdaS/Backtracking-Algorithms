@@ -16,7 +16,7 @@ def main():
             -x, --exit
                      Exit the program"""
         print(options_menu_before)
-        
+
         while True:
             mode = input("\n>>> ")
 
@@ -71,8 +71,6 @@ def main():
                 hamilton_cycle = find_hamilton_cycle(graph.copy())
                 if hamilton_cycle:
                     print(hamilton_cycle)
-                else:
-                    print("Graph is not Hamiltonian")
             elif action in ('--help', '-H'):
                 print(options_menu_after)
             elif action in ('--back', '-b'):
