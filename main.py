@@ -1,7 +1,7 @@
-from operations.hamiltonianGraph import generate_hamiltonian_graph
-from operations.non_hamiltonianGraph import generate_non_hamiltonian_graph
-from operations.euler import find_euler_cycle
-from operations.hamilton import find_hamilton_cycle
+from operations.generateGraph.hamiltonianGraph import generate_hamiltonian_graph
+from operations.generateGraph.non_hamiltonianGraph import generate_non_hamiltonian_graph
+from operations.findCycle.euler import find_euler_cycle
+from operations.findCycle.hamilton import find_hamilton_cycle
 
 def main():
     while True:
