@@ -116,6 +116,8 @@ def main():
 
             elif action in ('--exit', '-x'):
                 return
+            else:
+                print("Invalid argument. For more informations use '-H' or '--help'\n")
 
 if __name__ == "__main__":
     main()
