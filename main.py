@@ -2,6 +2,7 @@ from operations.generateGraph.hamiltonianGraph import generate_hamiltonian_graph
 from operations.generateGraph.non_hamiltonianGraph import generate_non_hamiltonian_graph
 from operations.findCycle.euler import find_euler_cycle
 from operations.findCycle.hamilton import find_hamilton_cycle
+from operations.exportTikz.exportToTikz import export_to_tikz
 from operations.graph import Graph
 
 def main():
@@ -22,6 +23,7 @@ def main():
     
     print("\nGenerated Graph:")
     Graph.display(self=graph)
+    export_to_tikz(graph)
     print("\nEulerian Cycle:")
     euler_cycle = find_euler_cycle(graph)
     if euler_cycle:

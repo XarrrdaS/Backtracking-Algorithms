@@ -10,3 +10,21 @@ class Graph:
     def display(self):
         for node, neighbors in self.adj_list.items():
             print(f"{node}: {neighbors}")
+
+    def is_connected(self):
+        start = next((i for i in range(self.n) if self.adj_list[i]), None)
+        if start is None:
+            return True
+        
+        visited = [False] * self.n
+        stack = [start]
+        
+        while stack:
+            node = stack.pop()
+            if not visited[node]:
+                visited[node] = True
+                for neighbor in self.adj_list[node]:
+                    if not visited[neighbor]:
+                        stack.append(neighbor)
+        
+        return all(visited[i] or not self.adj_list[i] for i in range(self.n))
