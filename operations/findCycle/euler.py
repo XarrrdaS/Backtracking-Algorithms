@@ -1,8 +1,4 @@
 def find_euler_cycle(graph):
-    if not graph.is_connected():
-        print("Graph is not Eulerian")
-        return None
-    
     if not all(len(neighbors) % 2 == 0 for neighbors in graph.adj_list.values()):
         print("Graph is not Eulerian")
         return None
