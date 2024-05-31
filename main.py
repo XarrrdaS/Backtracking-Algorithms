@@ -1,5 +1,7 @@
-from operations.hamilton import generate_hamiltonian_graph
-from operations.non_hamilton import generate_non_hamiltonian_graph
+from operations.hamiltonianGraph import generate_hamiltonian_graph
+from operations.non_hamiltonianGraph import generate_non_hamiltonian_graph
+from operations.euler import find_euler_cycle
+from operations.hamilton import find_hamilton_cycle
 
 def main():
     while True:
@@ -20,9 +22,13 @@ def main():
     print("\nGenerated Graph:")
     graph.display()
     print("\nEuler Cycle:")
-    graph.find_euler_cycle()
+    euler_cycle = find_euler_cycle(graph)
+    if euler_cycle:
+        print(euler_cycle)
     print("\nHamiltonian Cycle:")
-    graph.find_hamilton_cycle()
+    hamilton_cycle = find_hamilton_cycle(graph)
+    if hamilton_cycle:
+        print(hamilton_cycle)
 
 if __name__ == "__main__":
     main()
