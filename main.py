@@ -21,13 +21,34 @@ def main():
             mode = input("\n>>> ")
 
             if mode in ('-h', '--hamilton'):
-                n = int(input("nodes> "))
-                saturation = int(input("saturation> "))
+                while True:
+                    try:
+                        n = int(input("nodes> "))
+                        break
+                    except ValueError:
+                        print("Please enter a valid integer\n")
+
+                while True:
+                    try:
+                        saturation = int(input("saturation> "))
+                        if saturation < 0 or saturation > 100:
+                            print("Saturation must be between 0 and 100\n")
+                        else:
+                            break
+                    except ValueError:
+                        print("Please enter a valid integer\n")
+
                 graph = generate_hamiltonian_graph(n, saturation)
                 break
 
             elif mode in ('-n', '--non-hamilton'):
-                n = int(input("nodes> "))
+                while True:
+                    try:
+                        n = int(input("nodes> "))
+                        break
+                    except ValueError:
+                        print("Invalid input. Please enter a valid integer.")
+
                 graph = generate_non_hamiltonian_graph(n)
                 break
 
@@ -36,7 +57,7 @@ def main():
 
             elif mode in ('--exit', '-x'):
                 return
-            
+
             else:
                 print("Invalid argument. For more informations use '--help'\n")
 
