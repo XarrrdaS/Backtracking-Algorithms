@@ -2,9 +2,6 @@ from ..graph import Graph
 import random
 
 def generate_hamiltonian_graph(n, saturation):
-    if n <= 10:
-        raise ValueError("Number of vertices must be greater than 10")
-
     graph = Graph(n)
     
     # Hamiltonian cycle generation
