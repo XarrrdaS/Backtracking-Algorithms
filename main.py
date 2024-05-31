@@ -6,22 +6,37 @@ from operations.exportTikz.exportToTikz import export_to_tikz
 
 def main():
     while True:
+        options_menu_before = """\nAvailable actions:\n
+            -h, --hamilton
+                   Generate Hamiltonian graph
+            -n, --non-hamilton
+                   Generate non-Hamiltonian graph
+            -H, --help
+                     Display help
+            -x, --exit
+                     Exit the program"""
+        print(options_menu_before)
+        
         while True:
-            mode = input(">>> ")
+            mode = input("\n>>> ")
 
-            if mode == '--hamilton':
+            if mode in ('-h', '--hamilton'):
                 n = int(input("nodes> "))
                 saturation = int(input("saturation> "))
                 graph = generate_hamiltonian_graph(n, saturation)
                 break
-            elif mode == '--non-hamilton':
+            elif mode in ('-n', '--non-hamilton'):
                 n = int(input("nodes> "))
                 graph = generate_non_hamiltonian_graph(n)
                 break
+            elif mode in ('--help', '-H'):
+                print(options_menu_before)
+            elif mode in ('--exit', '-x'):
+                return
             else:
-                print("Invalid argument. Use --hamilton or --non-hamilton\n")
+                print("Invalid argument. For more informations use '--help'\n")
 
-        options_menu = """\nAvailable actions:\n
+        options_menu_after = """\nAvailable actions:\n
         -d, --display
                Display graph in the adjacency list
         -t, --tikz
@@ -37,7 +52,7 @@ def main():
         -x, --exit
                Exit the program"""
         
-        print(options_menu)
+        print(options_menu_after)
         while True:
             action = input(">>> ")
 
@@ -59,7 +74,7 @@ def main():
                 else:
                     print("Graph is not Hamiltonian")
             elif action in ('--help', '-H'):
-                print(options_menu)
+                print(options_menu_after)
             elif action in ('--back', '-b'):
                 break
             elif action in ('--exit', '-x'):
