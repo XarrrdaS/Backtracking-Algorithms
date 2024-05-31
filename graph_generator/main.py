@@ -11,7 +11,6 @@ def main():
             break
         elif mode == '--non-hamilton':
             n = int(input("nodes> "))
-            graph = generate_non_hamiltonian_graph(n)
             break
         else:
             print("Invalid argument. Use --hamilton or --non-hamilton\n")
