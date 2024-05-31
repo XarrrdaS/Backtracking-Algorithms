@@ -21,7 +21,7 @@ def main():
     
     print("\nGenerated Graph:")
     graph.display()
-    print("\nEuler Cycle:")
+    print("\nEulerian Cycle:")
     euler_cycle = find_euler_cycle(graph)
     if euler_cycle:
         print(euler_cycle)
