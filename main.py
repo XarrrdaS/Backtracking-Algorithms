@@ -24,7 +24,10 @@ def main():
                 while True:
                     try:
                         n = int(input("nodes> "))
-                        break
+                        if n <= 10:
+                            print("Number of nodes must be greater than 10\n")
+                        else:
+                            break
                     except ValueError:
                         print("Please enter a valid integer\n")
 
@@ -45,9 +48,12 @@ def main():
                 while True:
                     try:
                         n = int(input("nodes> "))
-                        break
+                        if n <= 10:
+                            print("Number of nodes must be greater than 10\n")
+                        else:
+                            break
                     except ValueError:
-                        print("Invalid input. Please enter a valid integer.")
+                        print("Please enter a valid integer\n")
 
                 graph = generate_non_hamiltonian_graph(n)
                 break
@@ -59,7 +65,7 @@ def main():
                 return
 
             else:
-                print("Invalid argument. For more informations use '--help'\n")
+                print("Invalid argument. For more informations use '-H' or '--help'\n")
 
         options_menu_after = """\nAvailable actions:\n
         -d, --display
