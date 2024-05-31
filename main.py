@@ -25,14 +25,18 @@ def main():
                 saturation = int(input("saturation> "))
                 graph = generate_hamiltonian_graph(n, saturation)
                 break
+
             elif mode in ('-n', '--non-hamilton'):
                 n = int(input("nodes> "))
                 graph = generate_non_hamiltonian_graph(n)
                 break
+
             elif mode in ('--help', '-H'):
                 print(options_menu_before)
+
             elif mode in ('--exit', '-x'):
                 return
+            
             else:
                 print("Invalid argument. For more informations use '--help'\n")
 
@@ -59,22 +63,30 @@ def main():
             if action in ('--display', '-d'):
                 print("\nGenerated graph in the adjacency list:")
                 graph.display()
+
             elif action in ('--tikz', '-t'):
-                export_to_tikz(graph)
+                print("\nName your TeX file")
+                filename = input("filename> ")
+                export_to_tikz(graph, f'{filename}.tex')
+
             elif action in ('--euler', '-e'):
                 print("\nEulerian Cycle:")
                 euler_cycle = find_euler_cycle(graph.copy())
                 if euler_cycle:
                     print(euler_cycle)
+
             elif action in ('--hamilton', '-h'):
                 print("\nHamiltonian Cycle:")
                 hamilton_cycle = find_hamilton_cycle(graph.copy())
                 if hamilton_cycle:
                     print(hamilton_cycle)
+
             elif action in ('--help', '-H'):
                 print(options_menu_after)
+
             elif action in ('--back', '-b'):
                 break
+
             elif action in ('--exit', '-x'):
                 return
 

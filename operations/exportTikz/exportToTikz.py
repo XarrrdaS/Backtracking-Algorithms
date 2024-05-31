@@ -1,6 +1,6 @@
 from math import cos, sin, radians
 
-def export_to_tikz(self, filename='graph.tex'):
+def export_to_tikz(self, filename):
      tikz_code = [
          "\\documentclass{standalone}",
          "\\usepackage{tikz}",
@@ -25,6 +25,6 @@ def export_to_tikz(self, filename='graph.tex'):
      tikz_code.append("\\end{tikzpicture}")
      tikz_code.append("\\end{document}")
      
-     with open(filename, 'w') as f:
+     with open(f'./exportedGraphs/{filename}', 'w') as f:
          f.write("\n".join(tikz_code))
-     print(f"Graph exported to {filename}")
+     print(f"Graph exported correctly")
