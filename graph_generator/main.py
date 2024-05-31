@@ -8,13 +8,20 @@ def main():
             n = int(input("nodes> "))
             saturation = int(input("saturation> "))
             graph = generate_hamiltonian_graph(n, saturation)
-            return True
+            break
         elif mode == '--non-hamilton':
             n = int(input("nodes> "))
-            return True
+            graph = generate_non_hamiltonian_graph(n)
+            break
         else:
             print("Invalid argument. Use --hamilton or --non-hamilton\n")
-            continue
+    
+    print("\nGenerated Graph:")
+    graph.display()
+    print("\nEuler Cycle:")
+    graph.find_euler_cycle()
+    print("\nHamiltonian Cycle:")
+    graph.find_hamilton_cycle()
 
 if __name__ == "__main__":
     main()
