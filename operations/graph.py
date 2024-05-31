@@ -28,3 +28,8 @@ class Graph:
                         stack.append(neighbor)
         
         return all(visited[i] or not self.adj_list[i] for i in range(self.n))
+
+    def copy(self):
+        new_graph = Graph(self.n)
+        new_graph.adj_list = {k: v.copy() for k, v in self.adj_list.items()}
+        return new_graph
